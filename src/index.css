@@ -1,13 +1,204 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --color-white: #ffffff;
+  --color-light: #f0eff5;
+  --color-gray-light: #86848c;
+  --color-gray-dark: #56555e;
+  --color-dark: #27282f;
+  --color-primary: rgb(71, 7, 234);
+  --color-success: rgb(34, 202, 75);
+  --color-danger: rgb(255, 67, 54);
+  --color-warning: rgb(234, 181, 7);
+  --color-purple: rgb(160, 99, 245);
+  --color-primary-light: rgba(71, 7, 234, 0.2);
+  --color-success-light: rgba(34, 202, 75, 0.2);
+  --color-danger-light: rgba(255, 67, 54, 0.2);
+  --color-warning-light: rgba(234, 181, 7, 0.2);
+  --color-purple-light: rgba(160, 99, 245, 0.2);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1.6rem;
+  background: var(--color-light);
+  min-height: 100vh;
+  color: var(--color-gray-dark);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+h2 {
+  font-size: 2.4rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+h4 {
+  font-size: 1.6rem;
+}
+a {
+  color: var(--color-gray-dark);
+}
+
+img {
+  width: 100%;
+}
+
+/* Text-colors-solid */
+.text-primary {
+  color: var(--color-primary);
+}
+.text-success {
+  color: var(--color-success);
+}
+.text-warning {
+  color: var(--color-warning);
+}
+.text-danger {
+  color: var(--color-danger);
+}
+.text-purple {
+  color: var(--color-purple);
+}
+
+/* Text-colors-light */
+.text-primary-light {
+  color: var(--color-primary-light);
+}
+.text-success-light {
+  color: var(--color-success-light);
+}
+.text-warning-light {
+  color: var(--color-warning-light);
+}
+.text-danger-light {
+  color: var(--color-danger-light);
+}
+.text-purple-light {
+  color: var(--color-purple-light);
+}
+
+/* Background-colors-solid */
+.bg-light {
+  background: var(--color-light);
+}
+.bg-primary {
+  background: var(--color-primary);
+}
+.bg-success {
+  background: var(--color-success);
+}
+.bg-warning {
+  background: var(--color-warning);
+}
+.bg-danger {
+  background: var(--color-danger);
+}
+.bg-purple {
+  background: var(--color-purple);
+}
+/* Background-colors-lihgt */
+.bg-primary-light {
+  background: var(--color-primary-light);
+}
+.bg-success-light {
+  background: var(--color-success-light);
+}
+.bg-warning-light {
+  background: var(--color-warning-light);
+}
+.bg-danger-light {
+  background: var(--color-danger-light);
+}
+.bg-purple-light {
+  background: var(--color-purple-light);
+}
+
+/* Buttons */
+
+button {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-light);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  box-shadow: 0px 5px 10px 0px rgba(71, 7, 234, 0.4);
+}
+.btn-success {
+  background: var(--color-success);
+  box-shadow: 0px 5px 10px 0px rgba(34, 202, 75, 0.4);
+}
+.btn-danger {
+  background: var(--color-danger);
+  box-shadow: 0px 5px 10px 0px rgba(255, 67, 54, 0.4);
+}
+.btn-warning {
+  background: var(--color-warning);
+  box-shadow: 0px 5px 10px 0px rgba(234, 181, 7, 0.4);
+}
+.btn-dark {
+  background: var(--color-dark);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4);
+}
+.btn-purple {
+  background: var(--color-purple);
+  box-shadow: 0px 5px 10px 0px rgba(160, 99, 245, 0.4);
+}
+
+/* Navbar */
+.nav__wrapper {
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  height: 6rem;
+}
+.navbar {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: 1fr 3fr 2fr;
+}
+.nav__left,
+.nav__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .navbar {
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: 1fr 3fr 2fr;
+  }
 }
