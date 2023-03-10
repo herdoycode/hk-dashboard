@@ -1,8 +1,7 @@
-import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { Avatar } from "@mui/material";
-import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
 const Navbar = () => {
@@ -21,7 +20,7 @@ const Navbar = () => {
         </div>
         <div className="nav__center">
           <div className="nav__search bg-light">
-            <input type="text" placeholder="Search..." />{" "}
+            <input type="text" placeholder="Search..." />
             <SearchIcon
               className="search-icon"
               style={{ fontSize: "2.5rem" }}
@@ -30,23 +29,19 @@ const Navbar = () => {
         </div>
         <div className="nav__right">
           <div className="nav__info">
-            <div className="nav__info__item">
+            <div className="avatar">
               <Avatar alt="Remy Sharp" src="https://i.ibb.co/M1kpGmK/me.jpg" />
             </div>
-
-            <div className="nav__info__item">
-              <Badge badgeContent={4} color="primary">
-                <MailIcon color="action" style={{ fontSize: "2.5rem" }} />
-              </Badge>
+            <div className="nav__info__item bg-light">
+              <NotificationsActiveIcon style={{ fontSize: "2rem" }} />
             </div>
-
-            <div className="nav__info__item">
-              <Badge badgeContent={4} color="primary">
-                <NotificationsActiveIcon
-                  color="action"
-                  style={{ fontSize: "3rem" }}
-                />
-              </Badge>
+          </div>
+          <div className="nav__theme bg-light">
+            <div className="theme__info">
+              <WbSunnyIcon color="inherit" style={{ fontSize: "2rem" }} />
+            </div>
+            <div className="theme__info active">
+              <DarkModeIcon color="inherit" style={{ fontSize: "2rem" }} />
             </div>
           </div>
         </div>
