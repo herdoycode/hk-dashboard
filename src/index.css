@@ -183,12 +183,13 @@ button {
   justify-content: center;
   padding: 0px 10px;
   height: 6rem;
+  margin-bottom: 1rem;
 }
 .navbar {
   width: 100%;
   display: grid;
   grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: 1fr 3fr 2fr;
+  grid-template-columns: 1fr 3fr 1fr;
 }
 .nav__left,
 .nav__center {
@@ -196,9 +197,77 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.nav__left {
+  gap: 3rem;
+}
+
+.brand img {
+  width: 10rem;
+  cursor: pointer;
+  margin-bottom: -5px;
+}
+.toggler {
+  cursor: pointer;
+}
+.toggler div {
+  width: 2.5rem;
+  height: 0.3rem;
+  background: var(--color-dark);
+  margin: 0.3rem 0px;
+}
+.nav__search {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3rem;
+  padding: 0rem 1rem;
+}
+.nav__search input {
+  padding: 10px;
+  flex: 1;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+.nav__search .search__icon {
+  color: var(--color-dark);
+  cursor: pointer;
+}
+.nav__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.nav__info__item {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
+  .nav__center {
+    display: none;
+  }
   .navbar {
     grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 2fr;
+  }
+  .nav__left {
+    justify-content: flex-start;
+    padding-left: 2rem;
+  }
+  .nav__right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 2rem;
+  }
+  .nav__search {
+    width: 100%;
+  }
+  .nav__left {
+    gap: 2rem;
   }
 }
