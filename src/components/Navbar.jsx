@@ -5,6 +5,14 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
 const Navbar = () => {
+  const setDarkTheme = () => {
+    document.querySelector("body").setAttribute("data-theme", "dark");
+  };
+
+  const setLightTheme = () => {
+    document.querySelector("body").setAttribute("data-theme", "light");
+  };
+
   return (
     <div className="nav__wrapper">
       <div className="navbar">
@@ -37,10 +45,10 @@ const Navbar = () => {
             </div>
           </div>
           <div className="nav__theme bg-light">
-            <div className="theme__info">
+            <div onClick={setLightTheme} className="theme__info">
               <WbSunnyIcon color="inherit" style={{ fontSize: "2rem" }} />
             </div>
-            <div className="theme__info active">
+            <div onClick={setDarkTheme} className="theme__info active">
               <DarkModeIcon color="inherit" style={{ fontSize: "2rem" }} />
             </div>
           </div>
