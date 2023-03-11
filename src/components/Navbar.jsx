@@ -3,14 +3,28 @@ import { Avatar } from "@mui/material";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const setDarkTheme = () => {
     document.querySelector("body").setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
   };
 
   const setLightTheme = () => {
     document.querySelector("body").setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+  };
+
+  useEffect(() => {
+    const storeTheme = localStorage.getItem("theme");
+    document.querySelector("body").setAttribute("data-theme", storeTheme);
+  }, [setDarkTheme, setLightTheme]);
+
+  const navActive = () => {
+    document
+      .querySelector(".sidebar__wrapper")
+      .setAttribute("class", "sidebar__wrapper nav__actiov");
   };
 
   return (
@@ -20,7 +34,7 @@ const Navbar = () => {
           <div className="brand">
             <img src="https://i.ibb.co/2Zj543Y/h-code-logo.png" alt="" />
           </div>
-          <div className="toggler">
+          <div onClick={navActive} className="toggler">
             <div className="line_1"></div>
             <div className="line_2"></div>
             <div className="line_3"></div>
@@ -44,12 +58,12 @@ const Navbar = () => {
               <NotificationsActiveIcon style={{ fontSize: "2rem" }} />
             </div>
           </div>
-          <div className="nav__theme bg-light">
+          <div className="nav__theme">
             <div onClick={setLightTheme} className="theme__info">
-              <WbSunnyIcon color="inherit" style={{ fontSize: "2rem" }} />
+              <WbSunnyIcon color="inherit" style={{ fontSize: "1.2rem" }} />
             </div>
             <div onClick={setDarkTheme} className="theme__info active">
-              <DarkModeIcon color="inherit" style={{ fontSize: "2rem" }} />
+              <DarkModeIcon color="inherit" style={{ fontSize: "1.2rem" }} />
             </div>
           </div>
         </div>
