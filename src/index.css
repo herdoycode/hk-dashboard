@@ -47,7 +47,7 @@ body {
   background: var(--color-light);
   min-height: 100vh;
   color: var(--color-dark);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1,
@@ -192,6 +192,21 @@ button {
   box-shadow: 0px 5px 10px 0px rgba(160, 99, 245, 0.4);
 }
 
+/* Main */
+.main {
+  margin-left: 22rem;
+  padding: 0rem 2rem;
+  height: calc(100vh - 8rem);
+  overflow: auto !important;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    margin: 0;
+    padding: 0rem 1rem;
+    height: calc(100vh - 8rem);
+  }
+}
+
 /* Navbar */
 .nav__wrapper {
   background: var(--color-white);
@@ -328,14 +343,16 @@ button {
 /* Sidebar */
 
 .sidebar__wrapper {
+  position: fixed;
+  top: 7rem;
+  left: 0;
   height: calc(100vh - 7.5rem);
-  width: 24rem;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 1rem;
-  transition: 0.5s ease-in-out;
   margin-right: 2rem;
 }
 
@@ -376,13 +393,35 @@ button {
 
 /* Sidebar Nav */
 
+.sidenav__wrapper {
+  width: 100%;
+}
+.sidenav {
+  width: 100%;
+}
+.sidenav .active {
+  position: relative;
+}
+.sidenav .active::after {
+  content: "";
+  width: 0.6rem;
+  height: 100%;
+  background: var(--color-primary);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .sidenav__item {
   display: flex;
+  height: 4rem;
   align-items: center;
+  width: 100%;
   color: var(--color-gray-dark);
   cursor: pointer;
   gap: 1rem;
-  margin-bottom: 2rem;
+  padding-left: 3rem;
+  margin-bottom: 1rem;
 }
 .sidenav__icon {
   font-size: 2.5rem;
@@ -399,7 +438,6 @@ button {
   }
   .sidebar__wrapper {
     height: 100vh;
-    width: 20rem;
     background: var(--color-white);
     top: 0;
     transform: translateX(-100%);
@@ -411,7 +449,35 @@ button {
 }
 .nav__actiov {
   transform: translateX(0%);
+  transition: 0.5s ease-in-out;
 }
 .nav__hide {
   transform: translateX(-100%);
+  transition: 0.5s ease-in-out;
+}
+
+/* Tables */
+.table__header {
+  margin: 2rem 0rem;
+}
+
+.table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  padding: 0rem 1rem;
+}
+
+.table td,
+.table tr th {
+  border: 1px solid var(--color-light);
+  padding: 8px;
+  border-left: none;
+  border-right: none;
+}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
 }

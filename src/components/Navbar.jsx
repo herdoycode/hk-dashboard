@@ -4,8 +4,10 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const setDarkTheme = () => {
     document.querySelector("body").setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
@@ -50,20 +52,20 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav__right">
-          <div className="nav__info">
-            <div className="avatar">
-              <Avatar alt="Remy Sharp" src="https://i.ibb.co/M1kpGmK/me.jpg" />
-            </div>
-            <div className="nav__info__item bg-light">
-              <NotificationsActiveIcon style={{ fontSize: "2rem" }} />
-            </div>
-          </div>
           <div className="nav__theme">
             <div onClick={setLightTheme} className="theme__info">
               <WbSunnyIcon color="inherit" style={{ fontSize: "1.2rem" }} />
             </div>
             <div onClick={setDarkTheme} className="theme__info active">
               <DarkModeIcon color="inherit" style={{ fontSize: "1.2rem" }} />
+            </div>
+          </div>
+          <div className="nav__info">
+            <div className="avatar">
+              <Avatar alt="Remy Sharp" src="https://i.ibb.co/M1kpGmK/me.jpg" />
+            </div>
+            <div className="nav__info__item bg-light">
+              <NotificationsActiveIcon style={{ fontSize: "2rem" }} />
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ const SidebarCollapse = () => {
   const navCollapse = () => {
     document
       .querySelector(".sidebar__wrapper")
-      .setAttribute("class", "sidebar__wrapper");
+      .setAttribute("class", "sidebar__wrapper nav__hide");
   };
   return (
     <div className="nav__collapse">
