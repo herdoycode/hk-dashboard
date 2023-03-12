@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import DisplaySettingsOutlinedIcon from "@mui/icons-material/DisplaySettingsOutlined";
 import LiveHelpOutlinedIcon from "@mui/icons-material/LiveHelpOutlined";
@@ -10,6 +10,16 @@ import Dashboard from "@mui/icons-material/Dashboard";
 import { NavLink } from "react-router-dom";
 
 const SidebarNav = () => {
+  useEffect(() => {
+    Array.from(document.querySelectorAll(".sidenav__item")).map((item) =>
+      item.addEventListener("click", () =>
+        document
+          .querySelector(".sidebar__wrapper")
+          .setAttribute("class", "sidebar__wrapper nav__hide")
+      )
+    );
+  }, [NavLink]);
+
   return (
     <div className="sidenav__wrapper">
       <div className="sidenav">

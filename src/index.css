@@ -164,7 +164,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  color: var(--color-light);
+  color: #f0eff5;
 }
 
 .btn-primary {
@@ -452,7 +452,6 @@ button {
   transition: 0.5s ease-in-out;
 }
 .nav__hide {
-  transform: translateX(-100%);
   transition: 0.5s ease-in-out;
 }
 
@@ -465,19 +464,58 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  padding: 0rem 1rem;
 }
 
 .table td,
 .table tr th {
   border: 1px solid var(--color-light);
-  padding: 8px;
+  padding: 4px 2rem;
   border-left: none;
   border-right: none;
 }
 
 .table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 1.5rem 2rem !important;
   text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .table td,
+  .table tr th {
+    padding: 8px 1rem;
+  }
+}
+
+/* Pagination */
+.pagination {
+  padding: 1rem 2rem;
+}
+.paginate {
+  display: flex;
+  align-items: center;
+}
+.page__item {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--color-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.2rem;
+  cursor: pointer;
+}
+.page__next,
+.page__prev {
+  background: var(--color-purple);
+  width: auto !important;
+  border-radius: 2.5rem;
+  padding: 0px 1.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.page__link {
+  color: #fff;
+}
+.paginate .active {
+  background: var(--color-primary);
 }
