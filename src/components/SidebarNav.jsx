@@ -69,7 +69,7 @@ const SidebarNav = () => {
           <div className="sidenav__icon">
             <SettingsOutlinedIcon style={{ fontSize: "2rem" }} />
           </div>
-          <h4 className="sidenav__text">Settin</h4>
+          <h4 className="sidenav__text">Setting</h4>
         </NavLink>
       </div>
     </div>
