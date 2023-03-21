@@ -79,6 +79,10 @@ img {
   width: 100%;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 /* Text-colors-solid */
 .text-primary {
   color: var(--color-primary);
@@ -478,6 +482,13 @@ button {
   padding: 1.5rem 2rem !important;
   text-align: left;
 }
+.table__options{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 0rem;
+}
+
 @media screen and (max-width: 768px) {
   .table td,
   .table tr th {
@@ -518,4 +529,23 @@ button {
 }
 .paginate .active {
   background: var(--color-primary);
+}
+
+
+/* Filtering */
+.filter{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+select{
+  padding: 1rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  color: var(--color-dark);
+}
+
+select option{
+  font-size: 1.6rem;
 }
