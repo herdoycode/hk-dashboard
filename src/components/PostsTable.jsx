@@ -21,7 +21,11 @@ const PostsTable = () => {
       id: 4,
       path: "",
       label: "Delete",
-      content: (post) => <button className="btn-danger"> Delete </button>,
+      content: (post) => (
+        <button onClick={() => handleDelete(post)} className="btn-danger">
+          Delete
+        </button>
+      ),
     },
   ];
 
@@ -68,6 +72,13 @@ const PostsTable = () => {
 
   const handleSort = (sortColumn) => {
     setSortColumn(sortColumn);
+  };
+
+  const handleDelete = async (post) => {
+    const { data } = await axios.delete(
+      config.apiUrl + config.posts + "/" + post._id
+    );
+    setPosts(posts.filter((p) => p._id !== data._id));
   };
 
   const filtered = selectedCategory

@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import PostsTable from "./components/PostsTable";
 import Sidebar from "./components/Sidebar";
 import UsersTable from "./components/UsersTable";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path="/comments" element={<CommentTable />} />
           <Route path="/messages" element={<MessagesTable />} />
           <Route path="/users" element={<UsersTable />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </div>

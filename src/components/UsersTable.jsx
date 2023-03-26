@@ -28,21 +28,21 @@ const UsersTable = () => {
     },
   ];
 
-  const [comments, setComments] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const [sortColumn, setSortColumn] = useState({
-    path: "text",
+    path: "name",
     order: "asc",
   });
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
   useEffect(() => {
-    const fetchComments = async () => {
+    const fetchUsers = async () => {
       const { data } = await axios.get(config.apiUrl + config.users);
-      setComments(data);
+      setUsers(data);
     };
-    fetchComments();
+    fetchUsers();
   }, []);
 
   const handlePageChange = (page) => {
@@ -63,27 +63,27 @@ const UsersTable = () => {
   const handleDelete = async (comment) => {
     try {
       await axios.delete(config.apiUrl + config.comments + "/" + comment._id);
-      setComments(comments.filter((c) => c._id !== comment._id));
+      setUsers(users.filter((c) => c._id !== comment._id));
     } catch (error) {
       console.log(error);
     }
   };
 
-  const sorted = _.orderBy(comments, [sortColumn.path], [sortColumn.order]);
+  const sorted = _.orderBy(users, [sortColumn.path], [sortColumn.order]);
 
-  const paginateComments = paginate(sorted, currentPage, pageSize);
+  const paginateUsers = paginate(sorted, currentPage, pageSize);
 
   return (
     <div>
       <h2 className="table__header">All Comments</h2>
       <Table
-        data={paginateComments}
+        data={paginateUsers}
         sortColumn={sortColumn}
         onSort={handleSort}
         columns={columns}
       />
       <Pagination
-        itemsCount={comments.length}
+        itemsCount={users.length}
         pageSize={pageSize}
         currentPage={currentPage}
         onChange={handlePageChange}

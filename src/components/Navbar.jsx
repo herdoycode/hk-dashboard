@@ -4,7 +4,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -61,9 +61,11 @@ const Navbar = () => {
             </div>
           </div>
           <div className="nav__info">
-            <div className="avatar">
+            {/* <div className="avatar">
               <Avatar alt="Remy Sharp" src="https://i.ibb.co/M1kpGmK/me.jpg" />
-            </div>
+            </div> */}
+            <NavLink to={"/login"}>Login</NavLink>
+            <NavLink to={"/register"}>Register</NavLink>
             <div className="nav__info__item bg-light">
               <NotificationsActiveIcon style={{ fontSize: "2rem" }} />
             </div>

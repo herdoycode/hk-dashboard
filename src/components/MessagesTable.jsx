@@ -5,7 +5,6 @@ import { format } from "timeago.js";
 import Pagination from "./Pagination";
 import axios from "axios";
 import { paginate } from "../utils/paginate";
-import Options from "./common/Options";
 import Table from "./common/Table";
 
 const MessagesTable = () => {
@@ -22,15 +21,17 @@ const MessagesTable = () => {
     {
       id: 5,
       label: "Delete",
-      content: (post) => <button className="btn-danger"> Delete </button>,
+      content: (message) => (
+        <button onClick={() => handleDelete(message)} className="btn-danger">
+          Delete
+        </button>
+      ),
     },
   ];
 
-  const [posts, setPosts] = useState([]);
-  const [categorys, setCategorys] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [messages, setMessages] = useState([]);
   const [sortColumn, setSortColumn] = useState({
-    path: "title",
+    path: "sender",
     order: "asc",
   });
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,17 +40,9 @@ const MessagesTable = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const { data } = await axios.get(config.apiUrl + config.messages);
-      setPosts(data);
+      setMessages(data);
     };
     fetchPosts();
-  }, []);
-
-  useEffect(() => {
-    const fetchCategorys = async () => {
-      const { data } = await axios.get(config.apiUrl + config.categorys);
-      setCategorys(data);
-    };
-    fetchCategorys();
   }, []);
 
   const handlePageChange = (page) => {
@@ -63,28 +56,24 @@ const MessagesTable = () => {
     setCurrentPage(currentPage - 1);
   };
 
-  const handleFilter = (categoryId) => {
-    setSelectedCategory(categoryId);
-  };
-
   const handleSort = (sortColumn) => {
     setSortColumn(sortColumn);
   };
 
-  const filtered = selectedCategory
-    ? posts.filter((p) => p.category._id === selectedCategory)
-    : posts;
+  const handleDelete = async (message) => {
+    const { data } = await axios.delete(
+      config.apiUrl + config.messages + "/" + message._id
+    );
+    setMessages(messages.filter((m) => m._id !== data._id));
+  };
 
-  const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
+  const sorted = _.orderBy(messages, [sortColumn.path], [sortColumn.order]);
 
   const paginatePosts = paginate(sorted, currentPage, pageSize);
 
   return (
     <div>
-      <h2 className="table__header">All Posts</h2>
-      <div className="table__options">
-        <Options items={categorys} onSelect={handleFilter} />
-      </div>
+      <h2 className="table__header">All Messages</h2>
       <Table
         data={paginatePosts}
         sortColumn={sortColumn}
@@ -92,7 +81,7 @@ const MessagesTable = () => {
         columns={columns}
       />
       <Pagination
-        itemsCount={filtered.length}
+        itemsCount={messages.length}
         pageSize={pageSize}
         currentPage={currentPage}
         onChange={handlePageChange}
