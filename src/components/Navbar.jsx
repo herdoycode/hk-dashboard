@@ -1,28 +1,9 @@
-import SearchIcon from "@mui/icons-material/Search";
-import { Avatar } from "@mui/material";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import { useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { BsSearch, BsBell } from "react-icons/bs";
+import {} from "react";
+import { NavLink } from "react-router-dom";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const setDarkTheme = () => {
-    document.querySelector("body").setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark");
-  };
-
-  const setLightTheme = () => {
-    document.querySelector("body").setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-  };
-
-  useEffect(() => {
-    const storeTheme = localStorage.getItem("theme");
-    document.querySelector("body").setAttribute("data-theme", storeTheme);
-  }, [setDarkTheme, setLightTheme]);
-
   const navActive = () => {
     document
       .querySelector(".sidebar__wrapper")
@@ -45,29 +26,18 @@ const Navbar = () => {
         <div className="nav__center">
           <div className="nav__search bg-light">
             <input type="text" placeholder="Search..." />
-            <SearchIcon
-              className="search-icon"
-              style={{ fontSize: "2.5rem" }}
-            />
+            <BsSearch className="search-icon" style={{ fontSize: "2.5rem" }} />
           </div>
         </div>
         <div className="nav__right">
           <div className="nav__theme">
-            <div onClick={setLightTheme} className="theme__info">
-              <WbSunnyIcon color="inherit" style={{ fontSize: "1.2rem" }} />
-            </div>
-            <div onClick={setDarkTheme} className="theme__info active">
-              <DarkModeIcon color="inherit" style={{ fontSize: "1.2rem" }} />
-            </div>
+            <ThemeSwitch />
           </div>
           <div className="nav__info">
-            {/* <div className="avatar">
-              <Avatar alt="Remy Sharp" src="https://i.ibb.co/M1kpGmK/me.jpg" />
-            </div> */}
             <NavLink to={"/login"}>Login</NavLink>
             <NavLink to={"/register"}>Register</NavLink>
             <div className="nav__info__item bg-light">
-              <NotificationsActiveIcon style={{ fontSize: "2rem" }} />
+              <BsBell style={{ fontSize: "2rem" }} />
             </div>
           </div>
         </div>

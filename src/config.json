@@ -1,0 +1,9 @@
+{
+    "apiUrl": "https://blog-api-node.onrender.com/api",
+    "categorys":"/categorys",
+    "messages": "/messages",
+    "posts":"/posts",
+    "commets":"/commets",
+    "auth":"/auth",
+    "users":"/users"
+}

@@ -1,4 +1,4 @@
-import CloseIcon from "@mui/icons-material/Close";
+import { AiOutlineClose } from "react-icons/ai";
 
 const SidebarCollapse = () => {
   const navCollapse = () => {
@@ -10,7 +10,7 @@ const SidebarCollapse = () => {
   return (
     <div className="nav__collapse">
       <div onClick={navCollapse} className="collapse">
-        <CloseIcon style={{ fontSize: "2rem" }} />
+        <AiOutlineClose style={{ fontSize: "2rem" }} />
       </div>
     </div>
   );
