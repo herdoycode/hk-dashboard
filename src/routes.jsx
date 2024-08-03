@@ -6,6 +6,8 @@ import UsersTable from "./components/UsersTable";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
+// Setup routes
+
 const routes = createBrowserRouter([
   {
     path: "/",
